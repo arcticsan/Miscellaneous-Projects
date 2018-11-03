@@ -1,4 +1,9 @@
 import java.util.*;
+/* This class contains two methods that employ String.split()
+ * @author Bryan Chan
+ * November 2, 2018
+ * version 1 
+ */
 public class Split {
 
 	public static void main(String[] args) {
@@ -31,16 +36,15 @@ public class Split {
 			
 			//Part 1
 			String food = "applespineapplesbreadlettucetomatobreadbaconmayohambreadcheese";
-			//food = "cheesebreadbaconlettuceapples";
-			
-			food = "applespineapplesbreadlettucetomatobaconmayohambreadcheese";
-			
+			food = "applesbreadpineapplesbreadlettucetomatobaconmayohambreadcheese";
+			System.out.println("\nPart 1: \"applesbreadpineapplesbreadlettucetomatobaconmayohambreadcheese\"");
 			System.out.println(sandwichDescriber(food));
 			
 			//Part 2
+			System.out.println("\nPart 2: \"apples pineapples bread lettuce tomato bacon mayo ham bread cheese\"");
 			System.out.println(sandwichDescriberPt2("apples pineapples bread lettuce tomato bacon mayo ham bread cheese"));
 	}
-	//Your task Part 1:
+		//Your task Part 1:
 
 			/*Write a method that take in a string like
 
@@ -65,12 +69,10 @@ public class Split {
 				if (food.indexOf("bread",Last_BreadIndex) != -1) {
 					lastBread = false;
 					Last_BreadIndex++;
-					//System.out.println(Last_BreadIndex);
 				}
 				else if (food.indexOf("bread",Last_BreadIndex) == -1) {
 					lastBread = true;
 					Last_BreadIndex = food.indexOf("bread",Last_BreadIndex - 1);
-					System.out.println(Last_BreadIndex);
 				}
 			}
 			food = food.substring(FirstBread_Index,(Last_BreadIndex));
@@ -94,43 +96,25 @@ public class Split {
 		*/
 		public static String sandwichDescriberPt2(String food) {
 			int FirstBread_Index = food.indexOf("bread");
-		
-			//System.out.println(FirstBread_Index);
-		
-			int Last_BreadIndex = FirstBread_Index + 1;
-		
-			//System.out.println(food.indexOf("bread", Last_BreadIndex));
-			
+			int Last_BreadIndex = FirstBread_Index + 1;			
 			if (FirstBread_Index == -1) return("");
-		
 			boolean lastBread = false;
-		
-			do {
+			while (lastBread == false) {
 				if (food.indexOf("bread",Last_BreadIndex) != -1) {
 					lastBread = false;
 					Last_BreadIndex++;
-					//System.out.println(Last_BreadIndex);
 				}
 				else if (food.indexOf("bread",Last_BreadIndex) == -1) {
 					lastBread = true;
 					Last_BreadIndex = food.indexOf("bread",Last_BreadIndex - 1);
-					System.out.println(Last_BreadIndex);
 				}
 			}
-			while (lastBread == false);
-		
-			food = food.substring(FirstBread_Index,(Last_BreadIndex));
-		
-			//System.out.println("food is " + food);
-			
-			String[] ingredients = (food.split("bread"));
-			
+			food = food.substring(FirstBread_Index,(Last_BreadIndex));	
+			String[] ingredients = (food.split("bread"));	
 			String description = "";
-			
 			for (int i = 0; i < ingredients.length; i++) {
 				description = description + ingredients[i];
-			}
-				
+			}	
 			return (Arrays.toString(description.split(" ")));
 		}
 
