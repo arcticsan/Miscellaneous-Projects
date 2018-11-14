@@ -1,4 +1,8 @@
-
+/* This class contains the ArraysLab3 activity.
+ * @author Bryan Chan
+ * @start November 9, 2018
+ * @version 1 November 14, 2018
+ */
 import java.util.*;
 
 public class ArraysLab3 {
@@ -8,8 +12,16 @@ public class ArraysLab3 {
 		int[] a2 = {7,14,21,28,35,42,49,56};
 		int[] sumArr = sum(a1,a2);
 		int appendNum = 200;
-		int[]
-		
+		int[] appendArr = append(a1,appendNum);
+		int removeIdx = 5;
+		int[] removeArr = remove(a2,removeIdx);
+		int sumOfEvens = sumEven(appendArr);
+		rotateRight(a1);
+		System.out.println(Arrays.toString(sumArr));
+		System.out.println(Arrays.toString(appendArr));
+		System.out.println(Arrays.toString(removeArr));
+		System.out.println(sumOfEvens);
+		System.out.println(Arrays.toString(a1));
 	}
 	public static int[] sum(int[] arr1, int[] arr2) {
 		int[] arrsum = new int[arr1.length];
